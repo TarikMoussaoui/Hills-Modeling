@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% block header %} {{ parent() }} {% endblock %}
+
+{% block body %}
+
+    <div class="div-center">
+        <div class="titre-text">
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <ul class="nav nav-tabs" id="myTab">
+                    <li class="active">
+                        <a data-target="#Rpwd" data-toggle="tab">Réinitialisation de mot de passe</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="Rpwd">
+                        <p class="text-success">
+                        {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime}) }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %} {{ parent() }} {% endblock %}
+
+
+

@@ -1,0 +1,71 @@
+<?php
+
+
+namespace HillsModeling\FrontEndBundle\Entity;
+use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Projet
+ *
+ * @ORM\Table(name="Projet")
+ * @ORM\Entity(repositoryClass="HillsModeling\FrontEndBundle\Repository\ProjetRepository")
+ */
+
+class Projet
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @var string
+     * @ORM\Column(name="nom" , type="string")
+     * @Assert\NotBlank()
+     */
+    protected $nom;
+
+    /**
+     * @var \DateTime
+     * @ORM\Column(name="dateCreation" , type="date")
+     * @Assert\NotBlank()
+     */
+    protected $dateCreation;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Membre", inversedBy="projet")
+     * @ORM\JoinColumn(name="membre_id", referencedColumnName="id")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $membre;
+
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Attributs", mappedBy="projet")
+     */
+    private $attributs;
+    /**
+     * @ORM\OneToMany(targetEntity="Shemas", mappedBy="projet")
+     */
+    private $shemas;
+    /**
+     * @ORM\OneToMany(targetEntity="Transitions", mappedBy="projet")
+     */
+    private $transitions;
+
+    public function __construct() {
+        $this->attributs = new ArrayCollection();
+        $this->shemas = new ArrayCollection();
+        $this->transitions = new ArrayCollection();
+    }
+
+
+
+}

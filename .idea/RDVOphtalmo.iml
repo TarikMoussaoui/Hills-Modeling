@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/log" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sensiolabs/security-checker" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php55" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="PHP Runtime" type="php">
+        <CLASSES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+        </CLASSES>
+        <SOURCES>
+          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/../../RDVOphtalmo/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/composer.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/symfony/symfony/src/Symfony/Component/DependencyInjection/Tests/Fixtures/includes/ProjectWithXsdExtensionInPhar.phar/" />
+          <root url="phar://$MODULE_DIR$/../../RDVOphtalmo/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+          <root url="phar://$MODULE_DIR$/vendor/twig/twig/test/Twig/Tests/Loader/Fixtures/phar/phar-sample.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHP" type="php">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
+          <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensiolabs/security-checker" />
+          <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php55" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/doctrine-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/doctrine-cache-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/ircmaxell/password-compat" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/knplabs/knp-components" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/knplabs/knp-paginator-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/distribution-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/generator-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensiolabs/security-checker" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/monolog-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php54" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php55" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/security-acl" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/twig/twig" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/composer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$MODULE_DIR$/vendor/ircmaxell/password-compat" />
+          <root url="file://$MODULE_DIR$/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-components" />
+          <root url="file://$MODULE_DIR$/vendor/knplabs/knp-paginator-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/distribution-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensio/generator-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/sensiolabs/security-checker" />
+          <root url="file://$MODULE_DIR$/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/monolog-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php54" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php55" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/security-acl" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$MODULE_DIR$/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/vendor/twig/twig" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/composer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/annotations" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/cache" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/collections" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/common" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/dbal" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/doctrine-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/doctrine-cache-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/inflector" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/instantiator" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/lexer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/doctrine/orm" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/friendsofsymfony/user-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/incenteev/composer-parameter-handler" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/ircmaxell/password-compat" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/jdorn/sql-formatter" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/knplabs/knp-components" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/knplabs/knp-paginator-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/monolog/monolog" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/paragonie/random_compat" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/psr/log" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/distribution-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensio/generator-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/sensiolabs/security-checker" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/swiftmailer/swiftmailer" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/monolog-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/phpunit-bridge" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-apcu" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-intl-icu" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-mbstring" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php54" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php55" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php56" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-php70" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/polyfill-util" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/security-acl" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/swiftmailer-bundle" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/symfony/symfony" />
+          <root url="file://$MODULE_DIR$/../../RDVOphtalmo/vendor/twig/twig" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="jquery-1.12.4" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker.fr" level="application" />
+    <orderEntry type="library" name="bootstrap-datepicker" level="application" />
+    <orderEntry type="library" name="jquery.dateFormat" level="application" />
+    <orderEntry type="library" name="moment" level="application" />
+    <orderEntry type="library" name="retina" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="bootstrap-dropdown" level="application" />
+  </component>
+</module>

@@ -1,0 +1,44 @@
+HillsModeling_front_end_homepage:
+    path:     /projet
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:projet }
+
+HillsModeling_front_end_test:
+    path:     /
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:index}
+
+
+
+#Se faire inscrire par Admin, Membre, Professionel
+HillsModeling_front_end_Membre:
+    path:     /Membre/login
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:Membre }
+HillsModeling_front_end_login:
+    path:     /login
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:login }
+HillsModeling_front_end_Admin:
+    path:     /Admin/login
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:Admin }
+
+HillsModeling_front_end_professionnel:
+    path:     /professionnel/login
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:professionel }
+
+#confirmation_email
+HillsModeling_front_end_confirmation_email:
+    path:     /inscription/verify/{token}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:MailConfirmation }
+
+#Projet
+
+HillsModeling_Ajouter_projet:
+    path:     /Projet/creation
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:CreerProjet }
+HillsModeling_Ajouter_attributs:
+    path:     /Projet/attributs/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:CreerAttributs }
+HillsModeling_Ajouter_shemas:
+    path:     /Projet/shemas/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:CreerShemas }
+HillsModeling_Ouvrir_projet:
+    path:     /Projet/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:OuvrirProjet }

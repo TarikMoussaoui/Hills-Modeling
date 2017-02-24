@@ -1,0 +1,183 @@
+{% extends "::base.html.twig" %}
+
+{% block header %} {{ parent() }} {% endblock %}
+
+{% block body %}
+
+<body class="nav-md footer_fixed">
+<div class="container body">
+    <div class="main_container">
+        <!-- top navigation -->
+        <div class="nav nav-fixed">
+            <div class="nav navbar-nav navbar-left">
+                <a href="index.html">
+                    <img class="" src="{{ asset('bundles/HillsModelingfrontend//images/logo.png') }}" height="75px" alt="">
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                       aria-expanded="false">
+                        {% if app.user.civilisation == "Femme" %}
+                            <img src="{{ asset('bundles/HillsModelingfrontend/images/userf.png')}}" alt="">
+                        {% endif %}
+                        {% if app.user.civilisation == "Homme" %}
+                            <img src="{{ asset('bundles/HillsModelingfrontend/images/userm.png')}}" alt="">
+                        {% endif %}
+                        &nbsp;&nbsp;{{ app.user.prenom|upper }}
+                        &nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu  pull-right">
+                        <li>
+                            <a href="javascript:;"> Mon profile</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <span>FAQ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="fa fa-arrow-down pull-right"></i> Se deconnecter
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="main">
+            <div class="page-title">
+
+                            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-1">
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                <div class="row">
+                                    <button type="button" class="left-control-link" onclick="javascript:openProject();">
+                                        <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/new.png')}}" alt="save "/>
+                                    </button>
+
+                                </div>
+                                <div class="row">
+                                    <button type="button" class="left-control-link" onclick="javascript:newProject();">
+                                        <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/open.png') }}" alt="open "/>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="new-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="shemas-modal-label">Ouvrir Projet</h4>
+                            </div>
+                            <form action="{{ path('HillsModeling_front_end_homepage')}}" method="post">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        Nom du projet :
+                                    </div>
+                                    <div class="col-md-7">
+                                        <select class="form-control"  name="NomProjets">
+                                            <option selected>
+                                                <---------------------Select Projet--------------------->
+                                            </option>
+
+                                            {% for projet in projets  %}
+                                            <option value="{{ projet.id }}">
+                                                {{ projet.nom }}
+                                            </option>
+                                            {%  endfor  %}
+                                         </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="confirmYes " class="btn btn-primary" >Ouvrir</button>
+                                <button type="button" id="confirmNon"  class="btn btn-default" >Annuler</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="shemas-modal-label">Ajout</h4>
+                            </div>
+                            <form action="{{ path('HillsModeling_Ajouter_projet') }}" method="post">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        Nom du projet :
+                                    </div>
+                                    <div class="col-md-7">
+                                        <input type="text" name="NomProjet" class="form-control" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" id="confirmYesO " class="btn btn-primary" >Créer</button>
+                                <button type="button" id="confirmNonO"  class="btn btn-default" >Annuler</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    function newProject(){
+                        $("#new-modal").modal("show");
+
+                        $("#confirmNon").click(function() {
+                            $("#new-modal").modal("hide");
+                        });
+
+                        $("#confirmYes").on("click",function() {
+                            $("#new-modal").modal("hide");
+                            $.ajax({
+                                type: 'get',
+                                data:{'id':88},
+                                success: function () {
+                                }
+                            });
+                        });
+                    }
+                    function openProject(){
+                        $("#open-modal").modal("show");
+
+                        $("#confirmNonO").click(function() {
+                            $("#open-modal").modal("hide");
+                        });
+
+                        $("#confirmYesO").on("click",function() {
+                            $("#open-modal").modal("hide");
+                            $.ajax({
+                                type: 'get',
+                                data:{'id':88},
+                                success: function () {
+                                }
+                            });
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+        {% block javascripts %} {{ parent() }} {% endblock %}
+
+        {% endblock %}
+
+        {% block footer %} {{ parent() }} {% endblock %}

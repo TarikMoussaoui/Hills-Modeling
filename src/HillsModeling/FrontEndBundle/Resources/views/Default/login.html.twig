@@ -1,0 +1,91 @@
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% block body %}
+    <body class="login">
+    <div>
+        <a class="hiddenanchor" id="signup"></a>
+        <a class="hiddenanchor" id="signin"></a>
+
+        <div class="login_wrapper">
+            <div class="animate login_form">
+                <section class="login_section">
+                    {% if csrf_token is defined %}
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                    {% endif %}
+                    <div class="form-group col-xs-12 text-center" >
+
+                        {% if msg_succes is defined %}
+                            {% if msg_succes %}
+                                <div class="alert alert-success">
+                                    <strong>Votre compte a bien été activé !</strong>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if msg_email is defined %}
+                            {% if msg_email %}
+                                <div class="alert alert-success">
+                                    <strong>Un email d'activation vous a été envoyé. Consultez votre boîte mail pour activer votre espace !</strong>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        {% if erreur is defined %}
+                            {% if erreur %}
+                                <div class="alert alert-danger">
+                                    <strong>Le code d'activation n'est pas reconnu !</strong>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                        <form action="{{ path("fos_user_security_check") }}" method="post">
+                            <img class="login_logo" src="{{ asset('bundles/HillsModelingfrontend/images/Logo-for-dark-bg.png') }}" alt="">
+                            <div class="input_wrapper">
+                                {% if csrf_token is defined %}
+                                {% if csrf_token %}
+                                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                {% endif %}
+                                {% endif %}
+                                <div class="form-group col-xs-12 text-center" >
+                                    {% if error is defined %}
+                                    {% if error %}
+                                        <div class="alert alert-danger">
+                                            <strong>L'adresse e-mail ou le mot de passe que vous avez entré n'est pas valide !</strong>
+                                        </div>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                                <input type="text" class="login_btn_radius_up" id="username" name="_username" placeholder="Email" required="required" />
+                                <input type="password" placeholder="Mot de passe" class="login_btn_radius_down" id="password" name="_password" required="required" />
+
+                                <button type="submit" class="" id="_submit" name="_submit" style="background: transparent; border-color: transparent;">
+                                    <img src="{{ asset('bundles/HillsModelingfrontend/images/flech.png') }}" width="30px" alt="">
+                                </button>
+                            </div>
+
+                            <div class="login_links_wrapper">
+                                <a class="reset_pass" href="#">Mot de passe oublié ?</a>
+
+                                <div class="clearfix"></div>
+                                <br/>
+
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+    </body>
+
+
+    {% block javascripts %} {{ parent() }} {% endblock %}
+{% endblock %}
+{% block footer %}  {% endblock %}
+
+

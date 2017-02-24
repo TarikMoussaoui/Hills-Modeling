@@ -1,0 +1,130 @@
+{% extends "::base.html.twig" %}
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+{% block body %}
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+
+    <div class="login_wrapper">
+        <div class="animate login_form">
+            <section class="login_section">
+                <form method="POST" action="{{ path('HillsModeling_front_end_Membre') }}" novalidate>
+                    <img class="login_logo" src="{{ asset('bundles/HillsModelingfrontend//images/Logo-for-dark-bg.png') }}" alt="">
+                    {% if (msg_erreur is defined) %}
+                        <div class="alert alert-danger text-center">
+                            <strong>  {{ msg_erreur|raw }}</strong>
+                        </div>
+                    {% endif %}
+
+                    <div class="input_wrapper ">
+                        {{ form_widget(form.civilisation, { 'attr': {'class': 'login_btn_radius_up','placeholder': 'Civilisation'} }) }}
+                        <div class="has-error">
+                            {{ form_errors(form.civilisation) }}
+                        </div>
+                        {{ form_widget(form.email, { 'attr': {'class': 'login_btn_radius_down' ,'placeholder': 'Email'}}) }}
+                        <div class="has-error">
+                            <i class="fa fa-exclamation-circle">
+                            {{ form_errors(form.email) }}</i>
+                        </div>
+
+                    </div>
+
+                    <div class="input_wrapper">
+                        {{ form_widget(form.nom, { 'attr': {'class': 'login_btn_radius_up','placeholder': 'Nom'} }) }}
+                        <div class="has-error">
+                            {{ form_errors(form.nom) }}
+                        </div>
+                        {{ form_widget(form.prenom, { 'attr': {'class': 'login_btn_radius_down','placeholder': 'Prénom'} }) }}
+                        <div class="has-error">
+                            {{ form_errors(form.prenom) }}
+                        </div>
+                    </div>
+
+
+                    <div class="input_wrapper">
+                        {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'login_btn_radius_up' ,'placeholder': 'Mot de passe'} }) }}
+                        <div class="has-error">
+                            {{ form_errors(form.plainPassword.first) }}
+                        </div>
+                        {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'login_btn_radius_down','placeholder': 'Confirmer le mot de passe'} }) }}
+                        <div class="has-error">
+                            {{ form_errors(form.plainPassword.second) }}
+                        </div>
+
+                        <div class="input_wrapper">
+                            <input type="submit" value="Valider" class="btn btn-success btn-block">
+                            {{ form_widget(form._token) }}
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                        <div class="">
+                            <p class=""> Vous déja êtes membre ?
+                                <a href="#signup" class="to_register"> Se connecter </a>
+                            </p>
+
+                            <div class="clearfix"></div>
+                            <br/>
+
+                        </div>
+                </form>
+            </section>
+        </div>
+        <div id="register" class="animate registration_form">
+            <section class="login_section">
+                <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <img class="login_logo" src="{{ asset('bundles/HillsModelingfrontend/images/Logo-for-dark-bg.png') }}" alt="">
+                    <div class="input_wrapper">
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <div class="form-group col-xs-12 text-center" >
+                            {% if error %}
+                                <div class="alert alert-danger">
+                                    <strong>L'adresse e-mail ou le mot de passe que vous avez entré n'est pas valide !</strong>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <input type="text" class="login_btn_radius_up" id="username" name="_username" placeholder="Email" required="required" />
+                        <input type="password" placeholder="Mot de passe" class="login_btn_radius_down" id="password" name="_password" required="required" />
+
+                        <button type="submit" class="" id="_submit" name="_submit" style="background: transparent; border-color: transparent;">
+                            <img src="{{ asset('bundles/HillsModelingfrontend/images/flech.png') }}" width="30px" alt="">
+                        </button>
+                    </div>
+
+                    <div class="login_links_wrapper">
+                        <a class="reset_pass" href="#">Mot de passe oublié ?</a>
+                        <p class="">Pas d’identifiant ?
+                            <a href="#signin" class=""> Créez le vôtre dès maintenant. </a>
+                        </p>
+
+                        <div class="clearfix"></div>
+                        <br/>
+
+                    </div>
+                </form>
+
+            </section>
+        </div>
+    </div>
+        </div>
+        </div>
+
+
+
+</body>
+
+
+{% if (js is defined) %}{{ js|raw }}{% endif %}
+
+{% block javascripts %} {{ parent() }} {% endblock %}
+{% endblock %}
+{% block footer %} {% endblock %}
+
+
+

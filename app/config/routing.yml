@@ -1,0 +1,9 @@
+HillsModeling_front_end:
+    resource: "@HillsModelingFrontEndBundle/Resources/config/routing.yml"
+    prefix:   /
+
+HillsModeling_routing_fos:
+    resource: "@HillsModelingFrontEndBundle/Resources/config/routing_fos.yml"
+    prefix:   /
+fos_user_profile_show:
+    path: /

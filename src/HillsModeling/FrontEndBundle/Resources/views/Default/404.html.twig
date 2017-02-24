@@ -1,0 +1,73 @@
+{% extends "::base.html.twig" %}
+
+{% block header %} {{ parent() }} {% endblock %}
+
+{% block body %}
+
+
+    <body class="nav-md footer_fixed">
+    <div class="container body">
+
+    <div class="main_container">
+
+        <!-- top navigation -->
+        <div class="nav nav-fixed">
+            <div class="nav navbar-nav navbar-left">
+                <a href="index.html">
+                    <img class="" src="{{ asset('bundles/HillsModelingfrontend//images/logo.png') }}" height="75px" alt="">
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                       aria-expanded="false">
+                        {% if app.user.civilisation == "Femme" %}
+                            <img src="{{ asset('bundles/HillsModelingfrontend/images/userf.png')}}" alt="">
+                        {% endif %}
+                        {% if app.user.civilisation == "Homme" %}
+                            <img src="{{ asset('bundles/HillsModelingfrontend/images/userm.png')}}" alt="">
+                        {% endif %}
+                        &nbsp;&nbsp;{{ app.user.prenom|upper }}
+                        &nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu  pull-right">
+                        <li>
+                            <a href="javascript:;"> Mon profile</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <span>FAQ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="fa fa-arrow-down pull-right"></i> Se deconnecter
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="main col-lg-12 col-md-12 col-sm-12 col-xs-2">
+            <div class="not-found">
+                <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/page404.png') }}" height="200px" alt="">
+                <br>
+                <a href="{{ path('HillsModeling_front_end_test') }}" class="text-center" >Retour à la page d'accueil</a>
+            </div>
+        </div>
+
+
+        {% block javascripts %} {{ parent() }} {% endblock %}
+    </div>
+
+    </div>
+    </body>
+{% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}
+

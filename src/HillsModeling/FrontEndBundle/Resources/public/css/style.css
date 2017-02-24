@@ -1,0 +1,138 @@
+.login_logo {
+    width: 150px;
+}
+
+.login_section {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.input_wrapper {
+    margin: 30px;
+}
+
+.login_btn_radius_up {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: solid 1px gray;
+    background-color: transparent ;
+    padding: 8px 5px;
+    width: 300px;
+}
+
+.login_btn_radius_down {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: solid 1px gray;
+    background-color: transparent ;
+    padding: 8px 25px 8px 8px;
+    width: 300px;
+}
+
+.login_btn_connect{
+    margin-left: -34px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.login_form {
+    z-index: 22; }
+
+.registration_form {
+    z-index: 21;
+    opacity: 0;
+    width: 100%; }
+
+.registration_form, .login_form {
+    position: absolute;
+    top: 0px;
+    width: 100%; }
+
+#signup:target ~ .login_wrapper .registration_form, #signin:target ~ .login_wrapper .login_form {
+    z-index: 22;
+    animation-name: fadeIn;
+    animation-delay: .1s; }
+
+#signup:target ~ .login_wrapper .login_form, #signin:target ~ .login_wrapper .registration_form {
+    animation-name: fadeOut; }
+
+.animate {
+    -webkit-animation-duration: 2s;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-duration: 2s;
+    -moz-animation-timing-function: ease;
+    -moz-animation-fill-mode: both;
+    -o-animation-duration: 2s;
+    -o-animation-timing-function: ease;
+    -o-animation-fill-mode: both;
+    -ms-animation-duration: 2s;
+    -ms-animation-timing-function: ease;
+    -ms-animation-fill-mode: both;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+    animation-fill-mode: both; }
+
+.nav {
+    background-color:#F4E8E8;
+}
+.tile-stats {
+
+min-height: 100px;
+}
+
+.not-found {
+    position: absolute;
+    left: 33%;
+    margin: 10% 0;
+    font-size: 32px;
+    color:#30A987;
+    text-align: center;
+}
+
+
+.div-attribute {
+    border: 1px solid #979797;
+    background-color: #D8D8D8;
+    color: #30A987;
+    font-size: 18px;
+    margin: 4px;
+    width: 32%;
+    text-align: left;
+}
+
+.left-control-link {
+    margin: 20px;
+    background-color: transparent;
+    border: 0;
+}
+
+.add-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 5px;
+    border: 0;
+    background-color: transparent;
+}
+.shemas-Content {
+    color: black;
+    overflow: auto;
+}
+
+.div-shemas {
+    border: 1px solid #979797;
+    background-color: #D8D8D8;
+    color: #30A987;
+    margin: 4px;
+    padding: 8px;
+    width: 49%;
+    text-align: left;
+}

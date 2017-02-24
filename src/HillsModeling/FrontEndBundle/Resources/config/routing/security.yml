@@ -1,0 +1,7 @@
+fos_user_security_check:
+    pattern: /connexion_check
+    defaults : { _controller :FOSUserBundle:Security:check }
+
+fos_user_security_logout:
+    pattern: /deconnexion
+    defaults : { _controller :FOSUserBundle:Security:logout }

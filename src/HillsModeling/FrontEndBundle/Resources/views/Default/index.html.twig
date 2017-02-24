@@ -1,0 +1,412 @@
+{% extends "::base.html.twig" %}
+
+{% block header %} {{ parent() }} {% endblock %}
+
+{% block body %}
+
+<body class="nav-md footer_fixed">
+<div class="container body">
+    <div class="main_container">
+        <!-- top navigation -->
+        <div class="nav nav-fixed">
+            <div class="nav navbar-nav navbar-left">
+                <a href="index.html">
+                    <img class="" src="{{ asset('bundles/HillsModelingfrontend//images/logo.png') }}" height="75px" alt="">
+                </a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                       aria-expanded="false">
+                                {% if app.user.civilisation == "Femme" %}
+                        <img src="{{ asset('bundles/HillsModelingfrontend/images/userf.png')}}" alt="">
+                         {% endif %}
+                        {% if app.user.civilisation == "Homme" %}
+                        <img src="{{ asset('bundles/HillsModelingfrontend/images/userm.png')}}" alt="">
+                         {% endif %}
+                         &nbsp;&nbsp;{{ app.user.prenom|upper }}
+                        &nbsp;&nbsp;<span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                    <ul class="dropdown-menu  pull-right">
+                        <li>
+                            <a href="javascript:;"> Mon profile</a>
+                        </li>
+                        <li>
+                            <a href="javascript:;">
+                                <span>FAQ</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                <i class="fa fa-arrow-down pull-right"></i> Se deconnecter
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="main">
+            <div class="page-title">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_content">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                    <li role="presentation" class="active">
+                                        <a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab"
+                                           aria-expanded="true">
+                                            ATTRIBUTS
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"
+                                           aria-expanded="false">
+                                            SHÉMAS
+                                        </a>
+                                    </li>
+                                    <li role="presentation" class="">
+                                        <a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab"
+                                           aria-expanded="false">
+                                            TRANSITIONS
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1"
+                                         aria-labelledby="home-tab">
+                                        <div class="tile-stats col-md-11 col-sm-11 col-xs-11">
+                                           {% for Attributs in listAttributs %}
+                                               {% if Attributs.etat == 1 %}
+                                            <button type="button" class="div-attribute col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="javascript:openRecord({{ Attributs.id }});">
+                                                Nom : {{ Attributs.nom }} TYPE : {{ Attributs.type }} VALEUR : {{ Attributs.valeur }}
+                                            </button>
+                                            {% endif %}
+                                            {% endfor %}
+                                            <button type="button" class="add-link" onclick="javascript:newRecord(1);">
+
+                                                <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/add.png')}}" alt="Add new record"/>
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-6 col-xs-1">
+                                            <div class="row">
+                                                <a class="left-control-link" href="#">
+
+                                                    <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/close.png')}}" alt="close "/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="tile-stats col-md-11 col-sm-11 col-xs-11">
+                                            {% for Attributs in listAttributs %}
+                                                {% if Attributs.etat == 2 %}
+                                                    <button type="button" class="div-attribute col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="javascript:openRecord();">
+                                                        Nom : {{ Attributs.nom }} TYPE : {{ Attributs.type }} VALEUR : {{ Attributs.valeur }}
+                                                    </button>
+                                                {% endif %}
+                                            {% endfor %}
+                                            <button type="button" class="add-link" onclick="javascript:newRecord(2);">
+
+                                                <img class="" src= "{{ asset('bundles/HillsModelingfrontend/images/add.png')}}"alt="Add new record"/>
+                                            </button>
+                                        </div>
+                                        <div class="tile-stats col-md-11 col-sm-11 col-xs-11">
+                                            {% for Attributs in listAttributs %}
+                                                {% if Attributs.etat == 3 %}
+                                                    <button type="button" class="div-attribute col-lg-3 col-md-3 col-sm-6 col-xs-12" onclick="javascript:openRecord();">
+                                                        Nom : {{ Attributs.nom }} TYPE : {{ Attributs.type }} VALEUR : {{ Attributs.valeur }}
+                                                    </button>
+                                                {% endif %}
+                                            {% endfor %}
+
+                                           <button type="button" class="add-link" onclick="javascript:newRecord(3);">
+                                                <img class="" src= "{{ asset('bundles/HillsModelingfrontend/images/add.png')}}" alt="Add new record"/>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2"
+                                         aria-labelledby="profile-tab">
+                                        <div class="tile-stats col-md-11 col-sm-11 col-xs-11">
+
+                                            {% for shema in shemas %}
+                                            <button type="button" class="div-shemas col-lg-6 col-md-6 col-sm-6 col-xs-6" onclick="javascript:openShemasRecord();">
+                                                <div class="shemas-name">
+                                                    [-]{{ shema.nom }}[{{ shema.valeurE }}][{{ shema.valeurS }}]
+                                                </div>
+                                                <hr class="divider"/>
+                                                <div class="shemas-Content">
+                                                    {{ shema.code }}
+                                                </div>
+                                            </button>
+                                            {% endfor %}
+                                            <button type="button" class="add-link" onclick="javascript:newShemasRecord();">
+                                                <img class="" src= "{{ asset('bundles/HillsModelingfrontend/images/add.png')}}" alt="Add new record"/>
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-1 col-md-1 col-sm-6 col-xs-1">
+                                            <div class="row">
+                                                <a class="left-control-link" href="#">
+                                                    <img class="" src= "{{ asset('bundles/HillsModelingfrontend/images/close.png')}}" alt="close "/>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3"
+                                         aria-labelledby="profile-tab">
+                                        <p>your part goes here </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+        </div>
+        <div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="add-modal-label">Création</h4>
+                    </div>
+                    <form action="{{ path('HillsModeling_Ajouter_attributs',{'id' : projet.id } ) }}"  method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                Nom :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="nom" class="form-control" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Type :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="type" class="form-control" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Valeur :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="valeur" class="form-control"/>
+                            </div>
+                            <div id="Etat">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" id="confirmYes" class="btn btn-default" >Ajouter</button>
+                        <button type="button" id="confirmNon"  class="btn btn-primary" >Annuler</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="open-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="open-modal-label">Modification</h4>
+                    </div>
+                    <div id="ModifAttr"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="shemas-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="shemas-modal-label">Modification</h4>
+                    </div>
+                    <form action="{{ path('HillsModeling_Ajouter_shemas',{'id' : projet.id } ) }}" method="post">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5">
+                                Nom :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="nom" class="form-control"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Entrer :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="entrer" class="form-control"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Sortie :
+                            </div>
+                            <div class="col-md-7">
+                                <input type="text" name="sortie" class="form-control"/>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-5">
+                                Code :
+                            </div>
+                            <div class="col-md-7">
+                                <textarea class="fnct" name="code" rows="10" cols="200"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="openShemasEdit" class="btn btn-primary" >Modifier</button>
+                        <button type="button" id="cancel"  class="btn btn-default" >Annuler</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="add-shemas-modal" tabindex="-1" role="dialog" aria-labelledby="add-modal-label">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="shemas-modal-label">Ajout</h4>
+                    </div>
+                    <form action="{{ path('HillsModeling_Ajouter_shemas',{'id' : projet.id } ) }}" method="post">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    Nom :
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="nom" class="form-control"/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    Entrer :
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="entrer" class="form-control"/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    Sortie :
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" name="sortie" class="form-control"/>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    Code :
+                                </div>
+                                <div class="col-md-7">
+                                    <textarea class="fnct" name="code" rows="10" cols="200"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" id="addShemasEdit" class="btn btn-primary" >Ajouter</button>
+                            <button type="button" id="addCancel"  class="btn btn-default" >Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function newRecord(Etat){
+
+
+                $('#Etat').empty();
+                $('#Etat').append('<input type="text" name="etat" class="hidden form-control" value='+Etat+' />');
+
+                $("#add-modal").modal("show");
+
+                $("#confirmNon").click(function() {
+                    $("#add-modal").modal("hide");
+                });
+
+            }
+            function openRecord(value){
+
+
+                $("#open-modal").modal("show");
+
+                $("#openConfirmNon").click(function() {
+                    $("#open-modal").modal("hide");
+                });
+
+                $("#openConfirmYes").on("click",function() {
+                    $("#open-modal").modal("hide");
+                    $.ajax({
+                        type: 'get',
+                        /* url: '{',*/
+                        data:{'id':88},
+                        success: function () {
+                        }
+                    });
+                });
+            }
+
+            function openShemasRecord(){
+                $("#shemas-modal").modal("show");
+
+                $("#cancel").click(function() {
+                    $("#shemas-modal").modal("hide");
+                });
+
+                $("#openShemasEdit").on("click",function() {
+                    $("#shemas-modal").modal("hide");
+                    $.ajax({
+                        type: 'get',
+                        /*url: {,*/
+                        data:{'id':88},
+                        success: function () {
+                        }
+                    });
+                });
+            }
+            function newShemasRecord(){
+                $("#add-shemas-modal").modal("show");
+
+                $("#addCancel").click(function() {
+                    $("#add-shemas-modal").modal("hide");
+                });
+
+                $("#addShemasEdit").on("click",function() {
+                    $("add-shemas-modal").modal("hide");
+                    $.ajax({
+                        type: 'get',
+                        /* url: '{',*/
+                        data:{'id':88},
+                        success: function () {
+                        }
+                    });
+                });
+            }
+        </script>
+        {% block javascripts %} {{ parent() }} {% endblock %}
+
+{% endblock %}
+
+{% block footer %} {{ parent() }} {% endblock %}
