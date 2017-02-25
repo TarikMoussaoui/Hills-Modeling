@@ -12,6 +12,7 @@ use HillsModeling\FrontEndBundle\Form\AdminType;
 use HillsModeling\FrontEndBundle\Form\MembreType;
 use HillsModeling\FrontEndBundle\Form\ProfessionnelType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -507,6 +508,25 @@ class DefaultController extends Controller
             $response = new RedirectResponse($url);
             $this->authenticateUser($user, $response);
             return $response;
+    }
+
+    public function SaveTransitionsAction(Request $request, $id)
+    {
+        if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+            return $this->redirect($this->generateUrl('HillsModeling_front_end_Membre'));
+        }
+        $em = $this->getDoctrine()->getEntityManager();
+
+        /** @var Projet $projet */
+        $projet = $em->getRepository('HillsModelingFrontEndBundle:Projet')->find($id);
+
+        $reduxState = $request->request->get('redux_state');
+
+        $projet->setTransitions($reduxState);
+        $em->persist($projet);
+        $em->flush();
+
+        return new JsonResponse();
     }
 
     public function ModifierAttributsAction(Request $request)
