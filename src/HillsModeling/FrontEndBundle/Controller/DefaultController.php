@@ -529,13 +529,33 @@ class DefaultController extends Controller
         return new JsonResponse();
     }
 
-    public function ModifierAttributsAction(Request $request)
+    public function ModifierAttributsAction(Request $request,$id)
     {
         if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return $this->redirect($this->generateUrl('HillsModeling_front_end_Membre'));
         }
-        return $this->render('HillsModelingFrontEndBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $attributs =  $em->getRepository('HillsModelingFrontEndBundle:Attributs')->find($id);
 
+        if($this->getRequest()->isMethod('post')) {
+
+            $attributs->setNom($request->request->get('nom'));
+            $attributs->setType($request->request->get('type'));
+            $attributs->setValeur($request->request->get('valeur'));
+            $em->persist($attributs);
+            $em->flush();
+            $listAttributs = $em->getRepository('HillsModelingFrontEndBundle:Attributs')->FindAttr($attributs->getprojet()->getId());
+            $shemas = $em->getRepository('HillsModelingFrontEndBundle:Shemas')->FindShema($attributs->getprojet()->getId());
+
+            return $this->render('HillsModelingFrontEndBundle:Default:index.html.twig', ['projet' => $attributs->getprojet() ,'listAttributs' =>$listAttributs ,'shemas'=>$shemas]);
+        }else
+            $projet = $em->getRepository('HillsModelingFrontEndBundle:Projet')->find($attributs->getprojet()->getId());
+        $user = $em->getRepository('HillsModelingFrontEndBundle:Membre')->find($this->getUser()->getId());
+        $route = 'HillsModeling_Ouvrir_projet';
+        $url = $this->container->get('router')->generate($route, array('id' => $attributs->getprojet()->getId()));
+        $response = new RedirectResponse($url);
+        $this->authenticateUser($user, $response);
+        return $response;
     }
     public function CreershemasAction(Request $request,$id)
     {
@@ -568,13 +588,35 @@ class DefaultController extends Controller
         return $response;
 
     }
-    public function ModifiershemasAction(Request $request)
+    public function ModifiershemasAction(Request $request,$id)
     {
         if(!$this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
             return $this->redirect($this->generateUrl('HillsModeling_front_end_Membre'));
         }
-        return $this->render('HillsModelingFrontEndBundle:Default:index.html.twig');
+        $em = $this->getDoctrine()->getEntityManager();
+        $shema = $em->getRepository('HillsModelingFrontEndBundle:Shemas')->find($id);
 
+        if($this->getRequest()->isMethod('post')) {
+            $shema->setNom($request->request->get('nom'));
+            $shema->setValeurE($request->request->get('entrer'));
+            $shema->setValeurS($request->request->get('sortie'));
+            $shema->setCode($request->request->get('code'));
+            $projet = $em->getRepository('HillsModelingFrontEndBundle:Projet')->find($shema->getprojet()->getid());
+            $shema->setProjet($projet);
+            $em->persist($shema);
+            $em->flush();
+            $listAttributs = $em->getRepository('HillsModelingFrontEndBundle:Attributs')->FindAttr($shema->getprojet()->getid());
+            $shemas = $em->getRepository('HillsModelingFrontEndBundle:Shemas')->FindShema($shema->getprojet()->getid());
+
+            return $this->render('HillsModelingFrontEndBundle:Default:index.html.twig', ['projet' => $shema->getprojet() ,'listAttributs' =>$listAttributs,'shemas'=>$shemas ]);
+        }else
+            $projet = $em->getRepository('HillsModelingFrontEndBundle:Projet')->find($shema->getprojet()->getid());
+        $user = $em->getRepository('HillsModelingFrontEndBundle:Membre')->find($this->getUser()->getId());
+        $route = 'HillsModeling_Ouvrir_projet';
+        $url = $this->container->get('router')->generate($route, array('id' => $shema->getprojet()->getid()));
+        $response = new RedirectResponse($url);
+        $this->authenticateUser($user, $response);
+        return $response;
     }
 
 

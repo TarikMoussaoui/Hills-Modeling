@@ -36,6 +36,12 @@ HillsModeling_Ajouter_projet:
 HillsModeling_Ajouter_attributs:
     path:     /Projet/attributs/{id}
     defaults: { _controller: HillsModelingFrontEndBundle:Default:CreerAttributs }
+HillsModeling_Modifier_attributs:
+    path:     /Projet/attributs/modifier/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:ModifierAttributs }
+HillsModeling_Modifier_shema:
+    path:     /Projet/shema/modifier/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:Modifiershemas }
 HillsModeling_Save_transitions:
     path:     /Projet/save/transitions/{id}
     defaults: { _controller: HillsModelingFrontEndBundle:Default:SaveTransitions }

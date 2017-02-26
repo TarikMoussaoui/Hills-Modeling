@@ -132,7 +132,7 @@
                                         <div class="tile-stats col-md-11 col-sm-11 col-xs-11">
 
                                             {% for shema in shemas %}
-                                            <button type="button" class="div-shemas col-lg-6 col-md-6 col-sm-6 col-xs-6" onclick="javascript:openShemasRecord();">
+                                            <button type="button" class="div-shemas col-lg-6 col-md-6 col-sm-6 col-xs-6" onclick="javascript:openShemasRecord({{ shema.id }});">
                                                 <div class="shemas-name">
                                                     [-]{{ shema.nom }}[{{ shema.valeurE }}][{{ shema.valeurS }}]
                                                 </div>
@@ -225,7 +225,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="shemas-modal-label">Modification</h4>
+                        <h4 class="modal-title" id="shemas-modal-label">Ajouter</h4>
                     </div>
                     <form action="{{ path('HillsModeling_Ajouter_shemas',{'id' : projet.id } ) }}" method="post">
                     <div class="modal-body">
@@ -266,7 +266,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" id="openShemasEdit" class="btn btn-primary" >Modifier</button>
+                        <button type="submit" id="openShemasEdit" class="btn btn-primary" >Ajouter</button>
                         <button type="button" id="cancel"  class="btn btn-default" >Annuler</button>
                     </div>
                     </form>
@@ -279,51 +279,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="shemas-modal-label">Ajout</h4>
+                        <h4 class="modal-title" id="shemas-modal-label">Modifier</h4>
                     </div>
-                    <form action="{{ path('HillsModeling_Ajouter_shemas',{'id' : projet.id } ) }}" method="post">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    Nom :
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="text" name="nom" class="form-control"/>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    Entrer :
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="text" name="entrer" class="form-control"/>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    Sortie :
-                                </div>
-                                <div class="col-md-7">
-                                    <input type="text" name="sortie" class="form-control"/>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-5">
-                                    Code :
-                                </div>
-                                <div class="col-md-7">
-                                    <textarea class="fnct" name="code" rows="10" cols="200"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" id="addShemasEdit" class="btn btn-primary" >Ajouter</button>
-                            <button type="button" id="addCancel"  class="btn btn-default" >Annuler</button>
-                        </div>
-                    </form>
+                    <div id="Modifshema"></div>
                 </div>
             </div>
         </div>
@@ -342,7 +300,35 @@
                 });
 
             }
-            function openRecord(value){
+            function openRecord(idAttr){
+
+
+                var url = "{{ path('HillsModeling_Modifier_attributs',{'id': 'text'}) }}";
+                url = url.replace("text", idAttr);
+
+
+                $('#ModifAttr').append(' <form action='+url+'  method="post"> ' +
+                '<div class="modal-body"> ' +
+                '<div class="row"> ' +
+                '<div class="col-md-5">' +
+                'Nom : ' +
+                '</div> <div class="col-md-7"> ' +
+                '<input type="text" name="nom" class="form-control"  required> ' +
+                '</div> </div> <br> ' +
+                '<div class="row"> ' +
+                '<div class="col-md-5">' +
+                'Type :' +
+                '</div> <div class="col-md-7"> ' +
+                '<input type="text" name="type" class="form-control" required> </div> </div> <br> ' +
+                '<div class="row"> <div class="col-md-5">' +
+                'Valeur : ' +
+                '</div> <div class="col-md-7"> ' +
+                '<input type="text" name="valeur" class="form-control"/> </div> <div id="Etat"> </div> ' +
+                '</div> </div> <div class="modal-footer"> ' +
+                '<button type="submit" id="confirmYes" class="btn btn-default" >Modifier</button> ' +
+                '<button type="button" id="confirmNon"  class="btn btn-primary" >Annuler</button> ' +
+                '</div> </form>');
+
 
 
                 $("#open-modal").modal("show");
@@ -363,7 +349,9 @@
                 });
             }
 
-            function openShemasRecord(){
+            function newShemasRecord(idshema){
+
+
                 $("#shemas-modal").modal("show");
 
                 $("#cancel").click(function() {
@@ -381,7 +369,51 @@
                     });
                 });
             }
-            function newShemasRecord(){
+            function openShemasRecord(idshema){
+                var url = "{{ path('HillsModeling_Modifier_shema',{'id': 'text'}) }}";
+                url = url.replace("text", idshema);
+
+
+                $('#Modifshema').empty();
+                $('#Modifshema').append('<form action='+url+' method="post">'+
+                    '<div class="modal-body">'+
+                    '<div class="row">'+
+                    '<div class="col-md-5">'+
+                    'Nom : ' +
+                    '</div> ' +
+                    '<div class="col-md-7"> ' +
+                    '<input type="text" name="nom" class="form-control"/> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '<br> ' +
+                    '<div class="row"> ' +
+                    '<div class="col-md-5">' +
+                    'Entrer : ' +
+                    '</div> ' +
+                    '<div class="col-md-7"> ' +
+                    '<input type="text" name="entrer" class="form-control"/> ' +
+                    '</div> ' +
+                    '</div> <br> ' +
+                    '<div class="row"> ' +
+                    '<div class="col-md-5">' +
+                    'Sortie : ' +
+                    '</div> ' +
+                    '<div class="col-md-7"> ' +
+                    '<input type="text" name="sortie" class="form-control"/> </div> </div> <br> ' +
+                    '<div class="row"> ' +
+                    '<div class="col-md-5">' +
+                    'Code : ' +
+                    '</div> ' +
+                    '<div class="col-md-7"> ' +
+                    '<textarea class="fnct" name="code" rows="10" cols="200"></textarea> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '</div> ' +
+                    '<div class="modal-footer"> ' +
+                    '<button type="submit" id="addShemasEdit" class="btn btn-primary" >Modifier</button> ' +
+                    '<button type="button" id="addCancel"  class="btn btn-default" >Annuler</button> ' +
+                    '</div> ' +
+                    '</form>');
                 $("#add-shemas-modal").modal("show");
 
                 $("#addCancel").click(function() {
