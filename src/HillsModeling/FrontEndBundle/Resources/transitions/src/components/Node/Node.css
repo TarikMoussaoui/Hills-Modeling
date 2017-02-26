@@ -1,0 +1,10 @@
+.diamond{
+    fill: white;
+    stroke: black;
+    stroke-width: 2px;
+}
+.diamond circle{
+    stroke-width: 1px;
+    fill: white;
+    stroke: black;
+}
