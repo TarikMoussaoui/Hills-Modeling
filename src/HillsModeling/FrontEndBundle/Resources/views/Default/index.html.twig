@@ -94,9 +94,9 @@
                                         </div>
                                         <div class="col-lg-1 col-md-1 col-sm-6 col-xs-1">
                                             <div class="row">
-                                                <a class="left-control-link" href="#">
+                                                <a class="left-control-link" href="{{ path('HillsModeling_telecharger_xml',{'id' : projet.id } ) }}">
 
-                                                    <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/close.png')}}" alt="close "/>
+                                                    <img class="" src="{{ asset('bundles/HillsModelingfrontend/images/Download.png')}}" style="height: 75px;" alt="close "/>
                                                 </a>
                                             </div>
                                         </div>
@@ -147,11 +147,6 @@
                                             </button>
                                         </div>
                                         <div class="col-lg-1 col-md-1 col-sm-6 col-xs-1">
-                                            <div class="row">
-                                                <a class="left-control-link" href="#">
-                                                    <img class="" src= "{{ asset('bundles/HillsModelingfrontend/images/close.png')}}" alt="close "/>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                     <div role="tabpanel" class="tab-pane fade" id="tab_content3"

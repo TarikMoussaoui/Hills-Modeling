@@ -603,6 +603,57 @@ class DefaultController extends Controller
 
     }
 
+    public function ExportxmlAction($id){
+
+
+        $xml = '<?xml version="1.0" charset="UTF-8"?> 
+                <projet>
+                <attributs>';
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $projet = $em->getRepository('HillsModelingFrontEndBundle:Projet')->find($id);
+        $attributs = $em->getRepository('HillsModelingFrontEndBundle:Attributs')->FindAttr($id);
+
+        foreach($attributs as $att){
+            $xml .= '
+            <attribut>
+            <nom>'.$att->getnom().'</nom>
+            <type>'.$att->gettype().'</type>
+            <valeur>'.$att->getvaleur().'</valeur>
+            <etat>'.$att->getetat().'</etat>
+            </attribut>';
+        }
+        $xml .= '</attributs>
+                 <shemas>';
+        $shemas = $em->getRepository('HillsModelingFrontEndBundle:Shemas')->FindShema($id);
+
+        foreach($shemas as $sh){
+            $chaine = str_replace("\n","",$sh->getcode());
+            $chaine = str_replace("\r","",$chaine);
+            $chaine = str_replace("\t","",$chaine);
+            $xml .= '
+            <shema>
+            <nom>'.$sh->getnom().'</nom>
+            <ValeurEntrer>'.$sh->getvaleurE().'</ValeurEntrer>
+            <ValeurSortie>'.$sh->getvaleurS().'</ValeurSortie>
+            <code>'.$chaine.'
+            </code></shema>';
+        }
+        $xml .= '</shemas>';
+         $xml .= '<transitions>'. $projet->getTransitions().'</transitions>
+                  </projet>';
+
+      $fileName = $projet->getnom().'.xml';
+
+        $response = new Response();
+        $response->setContent($xml);
+        $response->headers->set('Content-Type', 'application/force-download');
+        $response->headers->set('Content-disposition', 'filename='. $fileName);
+
+        return $response;
+
+    }
+
 
     /**
      * Authenticate a user with Symfony Security

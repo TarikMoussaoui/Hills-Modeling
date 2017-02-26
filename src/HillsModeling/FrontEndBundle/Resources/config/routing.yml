@@ -45,3 +45,11 @@ HillsModeling_Ajouter_shemas:
 HillsModeling_Ouvrir_projet:
     path:     /Projet/{id}
     defaults: { _controller: HillsModelingFrontEndBundle:Default:OuvrirProjet }
+
+#xml
+HillsModeling_telecharger_xml:
+    path:     /Projet/xml/{id}
+    defaults: { _controller: HillsModelingFrontEndBundle:Default:Exportxml }
+
+
+
