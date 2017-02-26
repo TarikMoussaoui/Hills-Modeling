@@ -1,0 +1,9 @@
+.circle{
+    stroke: black;
+    stroke-width: 2px;
+    fill: white;
+}
+.circle text{
+    text-anchor: middle;
+    baseline-shift: -0.5ex;
+}

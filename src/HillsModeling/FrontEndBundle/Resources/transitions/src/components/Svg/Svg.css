@@ -1,0 +1,14 @@
+#main-svg{
+    border: 1px solid black;
+    background-color: #f3f3f3;
+    display: inline-block;
+}
+.selected > *{
+    stroke: red;
+    stroke-width: 2px;
+}
+text{
+    stroke: black !important;
+    fill: black !important;
+    stroke-width: 1px !important;
+}
