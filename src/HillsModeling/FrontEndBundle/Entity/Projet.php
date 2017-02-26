@@ -48,7 +48,7 @@ class Projet
 
     /**
      * @var String
-     * @ORM\Column(name="transitions", type="text")
+     * @ORM\Column(name="transitions", type="text", nullable=true)
      */
     private $transitions;
 
