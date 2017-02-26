@@ -10,5 +10,4 @@
 /vendor/
 /bin/
 /composer.phar
-.idea/HillsModelingOphtalmo.iml
-.idea/workspace.xml
+.idea/

@@ -2,6 +2,7 @@
 
 
 namespace HillsModeling\FrontEndBundle\Entity;
+use Doctrine\DBAL\Types\BlobType;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -45,7 +46,11 @@ class Projet
      */
     private $membre;
 
-
+    /**
+     * @var String
+     * @ORM\Column(name="transitions", type="text")
+     */
+    private $transitions;
 
     /**
      * @ORM\OneToMany(targetEntity="Attributs", mappedBy="projet")
@@ -55,19 +60,11 @@ class Projet
      * @ORM\OneToMany(targetEntity="Shemas", mappedBy="projet")
      */
     private $shemas;
-    /**
-     * @ORM\OneToMany(targetEntity="Transitions", mappedBy="projet")
-     */
-    private $transitions;
 
     public function __construct() {
         $this->attributs = new ArrayCollection();
         $this->shemas = new ArrayCollection();
-        $this->transitions = new ArrayCollection();
     }
-
-
-
 
     /**
      * Get id
@@ -220,33 +217,23 @@ class Projet
     }
 
     /**
-     * Add transition
+     * Set transitions
      *
-     * @param \HillsModeling\FrontEndBundle\Entity\Transitions $transition
+     * @param string $transitions
      *
      * @return Projet
      */
-    public function addTransition(\HillsModeling\FrontEndBundle\Entity\Transitions $transition)
+    public function setTransitions($transitions)
     {
-        $this->transitions[] = $transition;
+        $this->transitions = $transitions;
 
         return $this;
     }
 
     /**
-     * Remove transition
-     *
-     * @param \HillsModeling\FrontEndBundle\Entity\Transitions $transition
-     */
-    public function removeTransition(\HillsModeling\FrontEndBundle\Entity\Transitions $transition)
-    {
-        $this->transitions->removeElement($transition);
-    }
-
-    /**
      * Get transitions
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return string
      */
     public function getTransitions()
     {

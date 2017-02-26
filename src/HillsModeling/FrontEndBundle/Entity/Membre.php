@@ -51,6 +51,7 @@ class Membre extends User
     private $projet;
 
     public function __construct() {
+        parent::__construct();
         $this->projet = new ArrayCollection();
     }
 
