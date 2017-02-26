@@ -1,0 +1,9 @@
+#side-menu{
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    padding: 20px;
+}
+.save-container{
+    padding: 20px;
+}
